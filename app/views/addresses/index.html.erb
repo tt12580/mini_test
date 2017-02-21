@@ -1,8 +1,19 @@
-<div class="col-md-6 col-md-offset-3">
-  <%= form_tag({ controller: 'addresses', action: :index }, method: :get, class: 'form-inline') do %>
-    <%= select_tag :name, options_for_select(@addresses.map { |k| k.title }), class: 'form-control' %>
-  <% end %>
-
-  <%= link_to "添加", new_address_path, remote: true %>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-striped">
+      <tr>
+        <th>#</th>
+        <th>名字</th>
+        <th>地址</th>
+      </tr>
+      <% @addresses.each do |address| %>
+      <tr>
+          <td><%= address.id %></td>
+          <td><%= address.name %></td>
+          <td><%= address.title %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to "添加信息", new_address_path, remote: true %>
+  </div>
 </div>
