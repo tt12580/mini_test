@@ -1,0 +1,13 @@
+<% if @address.errors.blank? %>
+  // 用 Ajax 载入当前页面，找到下拉框的 Dom 的新 HTML，再替换目前页面的下拉框 Dom
+  var selector = '.form-control';
+  $.get(location.href, function(html) {
+    var doc = $(html).find(selector);
+    $(selector).replaceWith(doc);
+  });
+  bootbox.hideAll();
+<% else %>
+  var html = "<%= j(render('form', remote: true)) %>";
+  
+  $('form.new_address').replaceWith(html);
+<% end %>
