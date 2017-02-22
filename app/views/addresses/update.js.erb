@@ -8,5 +8,5 @@
 <% else %>
   var html = "<%= j(render('form', remote: true)) %>";
 
-  $('form.new_address').replaceWith(html);
+  $("form.edit_address_<%= @address.id %>").replaceWith(html);
 <% end %>

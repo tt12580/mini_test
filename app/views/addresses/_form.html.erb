@@ -1,7 +1,5 @@
-<%= form_for @address do |f| %>
-  <%= f.label "名字" %>
-  <%= f.text_field :name %>
-  <%= f.label "地址" %>
-  <%= f.text_field :title %>
-  <%= f.submit "创建" %>
+<%= simple_form_for @address, remote:true, class: "form-inline" do |f| %>
+  <%= f.input :name, label: "名字", class: "form-control" %>
+  <%= f.input :title, label: "地址", class: "form-control" %>
+  <%= f.submit "创建", class: "btn btn-sm btn-primary" %>
 <% end %>

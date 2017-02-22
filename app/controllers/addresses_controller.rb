@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit]
+  before_action :set_address, only: [:show, :edit, :update, :destroy]
 
   def index
     @addresses = Address.all
@@ -19,13 +19,49 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     respond_to do |format|
       if @address.save
-        format.html { redirect_to addresses_path, notice: '地址新增成功。' }
+        format.html {
+          flash[:success] = '地址新增成功。'
+          redirect_to addresses_path
+        }
         format.js
       else
-        format.html { render :new }
+        format.html {
+          flash[:danger] = '地址添加失败。'
+          render :new
+        }
         format.js
       end
     end
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @address.update_attributes(address_params)
+        format.html {
+          flash[:success] = '地址更新成功。'
+          redirect_to addresses_path
+        }
+        format.js
+      else
+        format.html {
+          flash[:danger] = '地址更新失败。'
+          render :edit
+        }
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    if @address.destroy
+      flash[:success] = "删除成功。"
+    else
+      flash[:danger] = "删除失败。"
+    end
+      redirect_to addresses_path
   end
 
   private
@@ -35,6 +71,6 @@ class AddressesController < ApplicationController
   end
 
   def set_address
-    @Address = Address.find(params[:id])
+    @address = Address.find(params[:id])
   end
 end
