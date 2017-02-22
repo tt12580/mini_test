@@ -7,6 +7,6 @@
   bootbox.hideAll();
 <% else %>
   var html = "<%= j(render('form', remote: true)) %>";
-
-  $("form.edit_address_<%= @address.id %>").replaceWith(html);
+  var edit_address = "edit_address_<%= @address.id %>";
+  $("form.edit_address").replaceWith(html);
 <% end %>
