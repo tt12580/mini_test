@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "pictures";
+@import "addresses";
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}

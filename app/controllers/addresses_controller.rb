@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
 
   def index
     @addresses = Address.all
+    @pictures = Picture.page(params[:page]).per(8)
   end
 
   def new
@@ -67,7 +68,7 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:title, :name)
+    params.require(:address).permit(:title, :name, :image)
   end
 
   def set_address
