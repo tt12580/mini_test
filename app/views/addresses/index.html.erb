@@ -6,6 +6,7 @@
     <%= modal title: "添加图片", size: :large do %>
       <div class="panel-body">
         <div class="picture">
+          <%= render "new_form" %>
           <%= render @pictures %>
         </div>
       </div>
@@ -13,5 +14,18 @@
         <%= paginate(@pictures, remote: true) %>
       </div>
     <% end %>
+    <%= image_tag Address.last.image_src %>
   </div>
 </div>
+
+<script>
+  <% Picture.all.each do |picture| %>
+    $(document).ready(function() {
+      $('#picture_<%= picture.id %>').click(function() {
+        $(this).toggleClass("red");
+        // alert($(this).attr("src"));
+        $('#address_image_src').val($('#picture_<%= picture.id %>').attr("src"));
+      });
+    });
+  <% end %>
+</script>

@@ -3,6 +3,12 @@
   height: 100%;
 }
 .block {
-  width: 100px;
+  width: 200px;
   height: 200px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.red {
+  border: 1px solid red;
 }

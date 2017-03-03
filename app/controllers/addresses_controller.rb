@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
     @addresses = Address.all
@@ -68,7 +69,7 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:title, :name, :image)
+    params.require(:address).permit(:title, :name, :image, :image_src)
   end
 
   def set_address

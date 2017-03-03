@@ -1,5 +1,6 @@
-<%= simple_form_for @address, remote:true, class: "form-inline" do |f| %>
+<%= simple_form_for @address, remote:true, html: {multipart: true}, class: "form-inline" do |f| %>
   <%= f.input :name, label: "名字", class: "form-control" %>
   <%= f.input :title, label: "地址", class: "form-control" %>
+  <%= f.file_field :image %>
   <%= f.submit "创建", class: "btn btn-sm btn-primary" %>
 <% end %>
