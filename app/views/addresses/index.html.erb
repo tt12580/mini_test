@@ -39,17 +39,16 @@
         </div>
       </div>
     </div>
-    <%= image_tag Address.last.image_src %>
+    <%#= image_tag Address.last.image_src %>
   </div>
 </div>
 
 <script>
-  <% Picture.all.each do |picture| %>
     $(document).ready(function() {
-      $('#picture_<%= picture.id %>').click(function() {
-        $(this).toggleClass("red");
-        $('#address_image_src').val($('#picture_<%= picture.id %>').attr("src"));
-        if ($(this).hasClass("red")) {
+      $('.block').click(function() {
+        $(this).find('img').toggleClass("red");
+        $('#address_image_src').val($(this).find('img').attr("src"));
+        if ($(this).find('img').hasClass("red")) {
           $('.no-class').addClass('green');
         }
         else {
@@ -57,7 +56,6 @@
         }
       });
     });
-  <% end %>
   // document.getElementById("uploadBtn").onchange = function () {
   //   document.getElementById("uploadFile").value = this.value;
   // };
