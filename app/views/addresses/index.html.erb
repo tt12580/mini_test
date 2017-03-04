@@ -3,17 +3,43 @@
     <div class="tables">
       <%= render "table" %>
     </div>
-    <%= modal title: "添加图片", size: :large do %>
-      <div class="panel-body">
-        <div class="picture">
-          <%= render "new_form" %>
-          <%= render @pictures %>
+    <button class="btn btn-default" data-toggle="modal" data-target="#modal-6812963836">
+      选择图片
+    </button>
+    <div class="modal fade" id="modal-6812963836" tabindex="-1" role="dialog" aria-labelledby="label-modal-6812963836" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="label-modal-6812963836">
+              <%= form_for Picture.new do |f| %>
+              <div class="fileUpload btn btn-primary">
+                  <span>Upload</span>
+                  <input type="file" class="upload" remote="true" multiple name="picture[image]" id="picture_image" />
+                </div>
+              <% end %>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div id="picture">
+              <%= render @pictures %>
+            </div>
+            <div id="paginator">
+              <%= paginate(@pictures, remote: true) %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= simple_form_for Address.new do |f| %>
+            <%= f.input :image_src, :as => :hidden %>
+            <div style="text-align: right;">
+            <%= f.submit "确定", class: "no-class" %>
+            <button type="button" data-dismiss="modal">取消</button>
+            </div>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="panel-footer", id="paginator">
-        <%= paginate(@pictures, remote: true) %>
-      </div>
-    <% end %>
+    </div>
+    <%= image_tag Address.last.image_src %>
   </div>
 </div>
 
@@ -22,9 +48,17 @@
     $(document).ready(function() {
       $('#picture_<%= picture.id %>').click(function() {
         $(this).toggleClass("red");
-        // alert($(this).attr("src"));
         $('#address_image_src').val($('#picture_<%= picture.id %>').attr("src"));
+        if ($(this).hasClass("red")) {
+          $('.no-class').addClass('green');
+        }
+        else {
+          $('.no-class').removeClass('green');
+        }
       });
     });
   <% end %>
+  // document.getElementById("uploadBtn").onchange = function () {
+  //   document.getElementById("uploadFile").value = this.value;
+  // };
 </script>
