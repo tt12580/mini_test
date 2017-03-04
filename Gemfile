@@ -45,6 +45,7 @@ gem 'mini_magick', '4.5.1'
 gem 'fog', '1.38.0'
 gem "jquery-fileupload-rails"
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
+# gem 'will_paginate', '~> 3.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

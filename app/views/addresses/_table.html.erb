@@ -1,15 +1,13 @@
 <table class="table table-striped" id="tt">
   <tr>
     <th>#</th>
-    <th>名字</th>
-    <th>地址</th>
+    <th>图片</th>
     <th>编辑</th>
   </tr>
   <% @addresses.each do |address| %>
   <tr>
       <td><%= address.id %></td>
-      <td><%= address.name %></td>
-      <td><%= address.title %></td>
+      <td><%= address.image_src %></td>
       <td>
         <%= link_to "edit", edit_address_path(address), remote: true, class: 'btn btn-xs btn-info' %>
         <%= link_to 'delete', address, method: :delete, data: { confirm: '确定要删除吗' }, class: 'btn btn-xs btn-danger' %>

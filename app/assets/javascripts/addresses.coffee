@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+# $(document).ready ->
+#   $('.block').click ->
+#     $(this).find('img').toggleClass 'red'
+#     $('#address_image_src').val $(this).find('img').attr('src')
+#     if $(this).find('img').hasClass('red')
+#       $('.no-class').addClass 'green'
+#     else
+#       $('.no-class').removeClass 'green'
+#     return
+#   return
