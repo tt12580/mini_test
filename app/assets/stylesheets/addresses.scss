@@ -1,13 +1,13 @@
 #picture {
   width: auto;
-  height: 400px;
+  height: 320px;
 }
 .block {
-  width: 200px;
-  height: 200px;
+  height: 160px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+  margin-bottom: 10px;
 }
 .red {
   border: 1px solid red;
@@ -32,3 +32,16 @@
   opacity: 0;
   filter: alpha(opacity=0);
 }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-fileupload/basic
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootbox.min
 //= require_tree .
+//= require turbolinks

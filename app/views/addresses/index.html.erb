@@ -20,11 +20,14 @@
             </h4>
           </div>
           <div class="modal-body">
-            <div id="picture">
-              <%= render @pictures %>
+            <div class="clearfix">
+              <div id="picture">
+                <%= render @pictures %>
+              </div>
             </div>
             <div id="paginator">
               <%= paginate(@pictures, remote: true) %>
+              <label class="tt" style="float:right;"></label>
             </div>
           <div class="panel-footer">
             <%= simple_form_for Address.new do |f| %>
@@ -41,3 +44,10 @@
   </div>
   <%= image_tag Address.last.image_src %>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var l = $('div.red').length;
+    $('.tt').html("已选" + l +"个，可选1个");
+  });
+</script>
