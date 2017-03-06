@@ -26,7 +26,6 @@
             <div id="paginator">
               <%= paginate(@pictures, remote: true) %>
             </div>
-          </div>
           <div class="panel-footer">
             <%= simple_form_for Address.new do |f| %>
             <%= f.input :image_src, :as => :hidden %>
@@ -39,24 +38,10 @@
         </div>
       </div>
     </div>
-    <%#= image_tag Address.last.image_src %>
   </div>
+  <%= image_tag Address.last.image_src %>
 </div>
 
-<script>
-    $(document).ready(function() {
-      $('.block').click(function() {
-        $(this).find('img').toggleClass("red");
-        $('#address_image_src').val($(this).find('img').attr("src"));
-        if ($(this).find('img').hasClass("red")) {
-          $('.no-class').addClass('green');
-        }
-        else {
-          $('.no-class').removeClass('green');
-        }
-      });
-    });
-  // document.getElementById("uploadBtn").onchange = function () {
-  //   document.getElementById("uploadFile").value = this.value;
-  // };
+<script type="text/javascript">
+    $('#picture .col-lg-3:last').hide();
 </script>
