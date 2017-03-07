@@ -1,15 +1,15 @@
 $(document).on 'click', '.block', ->
-  if $(this).hasClass('red')
-    $(this).removeClass('red');
-  else
-    $(this).addClass('red').siblings().removeClass("red");
-  return
-  if $(this).hasClass('red')
+  if $('div.selected').length == 0
     $('#address_image_src').val $(this).find('img').attr('src');
-  return
-  if $('div.red').length > 0
+  else
+    $('#address_image_src').val ''
+  if $(this).hasClass('selected')
+    $(this).removeClass('selected');
+  else
+    $(this).addClass('selected').siblings('.block').removeClass("selected");
+  if $('div.selected').length == 1
     $('.no-class').addClass 'green'
   else
     $('.no-class').removeClass 'green'
-  return
+  $('.tt').html($('.selected').size());
 return

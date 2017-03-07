@@ -1,16 +1,45 @@
 #picture {
   width: auto;
-  height: 320px;
+  height: 300px;
+  overflow:hidden;
 }
 .block {
-  height: 160px;
+  height: 140px;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
   margin-bottom: 10px;
+  position: relative;
+  padding: 0;
+  span {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    color: black;
+    font-weight: bold;
+  }
+  img {
+    height: 138px;
+    width: 215px;
+  }
+  i {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    line-height: 0;
+    right: 0;
+    bottom: 0;
+    background: image-url("selected.gif") no-repeat right bottom;
+    z-index: 99;
+    display: none;
+  }
 }
-.red {
+.selected {
   border: 1px solid red;
+  i {
+    display: block;
+  }
 }
 .green {
   background: green;
