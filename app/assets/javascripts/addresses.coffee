@@ -11,5 +11,5 @@ $(document).on 'click', '.block', ->
     $('.no-class').addClass 'green'
   else
     $('.no-class').removeClass 'green'
-  $('.tt').html($('.selected').size());
+  $('.size').html($('.selected').size());
 return

@@ -1,3 +1,22 @@
+<table class="table table-striped" id="tt">
+  <tr>
+    <th>#</th>
+    <th>图片</th>
+    <th>编辑</th>
+  </tr>
+  <% @pictures.each do |picture| %>
+  <tr>
+      <td><%= picture.id %></td>
+      <td><%= picture.image.url %></td>
+      <td>
+        <%= link_to "edit", edit_picture_path(picture), remote: true, class: 'btn btn-xs btn-info' %>
+        <%= link_to 'delete', picture, method: :delete, data: { confirm: '确定要删除吗' }, class: 'btn btn-xs btn-danger' %>
+      </td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to "添加信息", new_address_path, remote: true %>
+
 <div class="tt">
   <div class="col-lg-8">
     <div id="pictures">
@@ -15,12 +34,3 @@
   </div>
 
 </div>
-
-<script type="text/javascript">
-  <% Picture.all.each do |picture| %>
-    $(document).ready(function() {
-      $('#picture_<%= picture.id %>').click(function() {
-        $(this).toggleClass("red");
-    });
-  <% end %>
-</script>
