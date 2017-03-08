@@ -20,7 +20,8 @@
 <div class="tt">
   <div class="col-lg-8">
     <div id="pictures">
-      <%= render @pictures %>
+      <%#= render @pictures %>
+      <%= react_component('Pictures', data: @pictures) %>
     </div>
   </div>
   <div class="col-lg-8">

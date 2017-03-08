@@ -15,5 +15,8 @@
 //= require jquery-fileupload/basic
 //= require bootstrap-sprockets
 //= require bootbox.min
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 //= require turbolinks
