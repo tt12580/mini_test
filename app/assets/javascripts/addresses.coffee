@@ -1,8 +1,5 @@
 $(document).on 'click', '.block', ->
-  if $('div.selected').length == 0
-    $('#address_image_src').val $(this).find('img').attr('src');
-  else
-    $('#address_image_src').val ''
+  $('#address_image_src').val $(this).find('img').attr('src');
   if $(this).hasClass('selected')
     $(this).removeClass('selected');
   else
