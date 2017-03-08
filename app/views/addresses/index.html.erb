@@ -33,8 +33,8 @@
             <%= simple_form_for Address.new do |f| %>
             <%= f.input :image_src, :as => :hidden %>
             <div style="text-align: right;">
-            <%= f.submit "确定", class: "no-class" %>
-            <button type="button" data-dismiss="modal">取消</button>
+            <%= f.submit "确定", disabled: "disabled", class: "btn no-class" %>
+            <button type="button" data-dismiss="modal" class="btn">取消</button>
             </div>
             <% end %>
           </div>

@@ -3,6 +3,12 @@
   height: 300px;
   overflow:hidden;
 }
+#paginator {
+  label {
+    line-height: 79px;
+    float: right;
+  }
+}
 .block {
   height: 140px;
   text-align: center;
