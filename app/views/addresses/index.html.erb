@@ -27,7 +27,7 @@
             </div>
             <div id="paginator">
               <%= paginate(@pictures, remote: true) %>
-              <label>已选<span class="size"></span>个，可选1个</label>
+              <p>已选<span class="size"></span>个，可选1个</p>
             </div>
           <div class="panel-footer">
             <%= simple_form_for Address.new do |f| %>

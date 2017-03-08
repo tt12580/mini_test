@@ -1,3 +1,3 @@
 $('.tables').html('<%= escape_javascript render("table") %>');
 $('#picture').html('<%= escape_javascript render(@pictures) %>');
-$('#paginator').html("<%= escape_javascript(paginate(@pictures, :remote => true).to_s) %><label>已选<span class='size'>" + $('.selected').size() + "</span>个，可选1个</label>");
+$('#paginator').html("<%= escape_javascript(paginate(@pictures, :remote => true).to_s) %><p>已选<span class='size'>" + $('.selected').size() + "</span>个，可选1个</p>");
