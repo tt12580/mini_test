@@ -22,16 +22,18 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.save
         format.html {
-          flash[:success] = '地址新增成功。'
           redirect_to addresses_path
         }
-        format.js
+        format.js {
+          flash[:success] = '地址新增成功。'
+        }
       else
         format.html {
-          flash[:danger] = '地址添加失败。'
           render :new
         }
-        format.js
+        format.js {
+          flash[:danger] = '地址添加失败。'
+        }
       end
     end
   end
@@ -43,16 +45,18 @@ class AddressesController < ApplicationController
     respond_to do |format|
       if @address.update_attributes(address_params)
         format.html {
-          flash[:success] = '地址更新成功。'
           redirect_to addresses_path
         }
-        format.js
+        format.js {
+          flash[:success] = '地址更新成功。'
+        }
       else
         format.html {
-          flash[:danger] = '地址更新失败。'
           render :edit
         }
-        format.js
+        format.js {
+          flash[:danger] = '地址更新失败。'
+        }
       end
     end
   end
